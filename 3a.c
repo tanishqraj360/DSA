@@ -7,7 +7,7 @@ struct node
 {
     int data;
     struct node *next;
-} *first = NULL, *last = NULL, *temp = NULL, *temp1;
+} *first = NULL, *last = NULL, *temp = NULL, *temp1, *ptr;
 
 void create()
 {
@@ -28,7 +28,7 @@ void display()
     }
     else
     {
-        int cnt = 1;
+        int cnt = 0;
         printf("\nLinked list elements from the beginning: \n");
         while (temp1 != NULL)
         {
@@ -67,18 +67,16 @@ void insert_at_position()
     }
     else
     {
+        ptr = first;
         while (pos != count1)
         {
-            temp1 = temp;
-            temp = temp->next;
+            temp1 = ptr;
+            ptr = ptr->next;
             count1++;
         }
-        printf("Enter data: ");
-        scanf("%d", &num);
-        struct node *new_node = (struct node *)malloc(sizeof(struct node));
-        temp1->next = new_node;
-        new_node->data = num;
-        new_node->next = temp;
+        create();
+        temp1->next = temp;
+        temp->next = ptr;
     }
 }
 
@@ -93,15 +91,15 @@ int delete_at_value()
     }
     else
     {
-        temp = first;
-        while (temp->data != val)
+        ptr = first;
+        while (ptr->data != val)
         {
-            temp1 = temp;
-            temp = temp->next;
+            temp1 = ptr;
+            ptr = ptr->next;
         }
-        printf("Data to be deleted %d", temp->data);
-        temp1->next = temp->next;
-        free(temp);
+        printf("Data to be deleted %d", ptr->data);
+        temp1->next = ptr->next;
+        free(ptr);
         count--;
     }
 }
@@ -117,14 +115,14 @@ int search_at_val()
     }
     else
     {
-        int cnt = 1;
-        temp = first;
-        while (temp->data != val)
+        int cnt = 0;
+        ptr = first;
+        while (ptr->data != val)
         {
-            temp = temp->next;
+            ptr = ptr->next;
             cnt++;
         }
-        printf("Data %d is at node %d", temp->data, cnt);
+        printf("Data %d is at node %d", ptr->data, cnt);
     }
 }
 
