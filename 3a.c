@@ -80,9 +80,9 @@ void insert_at_position()
     }
 }
 
-int delete_at_value()
+void delete_at_value()
 {
-    int val;
+    int val, flag = 0;
     printf("Enter value: ");
     scanf("%d", &val);
     if (first == NULL)
@@ -92,21 +92,33 @@ int delete_at_value()
     else
     {
         ptr = first;
-        while (ptr->data != val)
+        while (ptr != NULL)
         {
+            if (ptr->data == val)
+            {
+                flag = 1;
+                break;
+            }
             temp1 = ptr;
             ptr = ptr->next;
         }
-        printf("Data to be deleted %d", ptr->data);
-        temp1->next = ptr->next;
-        free(ptr);
-        count--;
+        if (flag == 1)
+        {
+            printf("Data to be deleted %d", ptr->data);
+            temp1->next = ptr->next;
+            free(ptr);
+            count--;
+        }
+        else
+        {
+            printf("\nValue does not exist in list\n");
+        }
     }
 }
 
-int search_at_val()
+void search_at_val()
 {
-    int val;
+    int val, flag = 0;
     printf("Enter value: ");
     scanf("%d", &val);
     if (first == NULL)
@@ -117,12 +129,24 @@ int search_at_val()
     {
         int cnt = 0;
         ptr = first;
-        while (ptr->data != val)
+        while (ptr != NULL)
         {
+            if (ptr->data == val)
+            {
+                flag = 1;
+                break;
+            }
             ptr = ptr->next;
             cnt++;
         }
-        printf("Data %d is at node %d", ptr->data, cnt);
+        if (flag == 1)
+        {
+            printf("Data %d is at node %d", ptr->data, cnt);
+        }
+        else
+        {
+            printf("\nValue does not exist in the list\n");
+        }
     }
 }
 
