@@ -24,11 +24,11 @@ void pop()
     if (top == -1)
     {
         printf("Stack Underflow\n");
+        return;
     }
     else
     {
         printf("Data Removed: %d\n", arr[top]);
-        arr[top] = NULL;
         top--;
     }
 }
