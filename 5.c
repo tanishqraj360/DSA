@@ -3,51 +3,45 @@
 #define MAX 4
 
 int arr[MAX];
-int count = -1;
+int top = -1;
 
 void push()
 {
-    if (count == MAX)
+    if (top == MAX - 1)
     {
         printf("Stack Overflow\n");
     }
     else
     {
-        count++;
+        top++;
         printf("Enter data to push: ");
-        scanf("%d", &arr[count]);
+        scanf("%d", &arr[top]);
     }
 }
 
 void pop()
 {
-    if (count == -1)
+    if (top == -1)
     {
         printf("Stack Underflow\n");
     }
     else
     {
-        int p;
-        p = arr[count];
-        arr[count] == NULL;
-        count--;
-        printf("Data Removed: %d\n", p);
+        printf("Data Removed: %d\n", arr[top]);
+        arr[top] = NULL;
+        top--;
     }
 }
 
 void display()
 {
-    if (count == -1)
+    if (top == -1)
     {
         printf("Stack Underflow\n");
     }
-    else if (count == MAX + 1)
-    {
-        printf("Stack Overflow\n");
-    }
     else
     {
-        for (int i = 0; i <= count; i++)
+        for (int i = 0; i <= top; i++)
         {
             printf("%d\t", arr[i]);
         }
