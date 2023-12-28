@@ -1,3 +1,8 @@
+/*Write a C program to read and display the student details. Define a structure
+'Student' with fields name(string) , usn(int), marks of 3 subjects (int) and
+average(float) in it. Store the details of n students in an array of structure 'Student'.
+Display the details of all students in the descending order their total marks*/
+
 #include <stdio.h>
 #include <string.h>
 

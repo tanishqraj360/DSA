@@ -1,3 +1,5 @@
+/*Write a C program to reverse a linked list elements.*/
+
 #include<stdio.h>
 #include<stdlib.h>
 int count=0;

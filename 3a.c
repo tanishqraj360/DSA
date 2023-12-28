@@ -1,3 +1,11 @@
+/*Write a C program using dynamic variables and pointers, to construct a singly linked
+    list. The operations to be supported are:
+    (i) Insert at the front of a list.
+    (ii) Insert at any position in the list.
+    (iii) Deleting a node based on specified value.
+    (iv) Searching a node based on specified value.
+    (v) Displaying all the nodes in the list.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

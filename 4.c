@@ -1,3 +1,10 @@
+/*Write a C program to support the following operations on a doubly linked list where each
+    node consists of integers.
+    (i) Create a doubly linked list by adding each node at the front.
+    (ii)Insert a new node to the left of the node whose key value is read as an input.
+    (iii) Delete the node of a given data, if it is found, otherwise display appropriate message.
+    (iv) Display the contents of the list.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,3 +1,13 @@
+/*Write a program to design, Develop and Implement a menu- driven program in C for the
+    following operations on STACK of integers (Array implementation of the stack with
+    maximum size MAX = 4).
+    (i) Push an element on to stack.
+    (ii) Pop an element from the stack.
+    (iii) Check Overflow and Underflow situations on the stack.
+    (iv) Display the contents of stack.
+    (v) Exit.
+    Support the program with appropriate functions for each of the above operations.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 4

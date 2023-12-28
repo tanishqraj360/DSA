@@ -1,3 +1,6 @@
+/*Write a program to accept 3 integers and find the maximum among 3 numbers using
+    functions and pointers*/
+
 #include <stdio.h>
 
 int findMax(int *ptr1, int *ptr2, int *ptr3)

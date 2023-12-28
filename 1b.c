@@ -1,3 +1,6 @@
+/*Write a C program using pointer for searching the desired element from the array
+    using pointers*/
+
 #include <stdio.h>
 
 int main()

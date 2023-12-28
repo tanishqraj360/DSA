@@ -1,6 +1,9 @@
+/*Write a program to find the maximum element in each row of the matrix using
+    pointers*/
+
 #include <stdio.h>
 
-int findMax(int *arr,int m,int n)
+int findMax(int *arr, int m, int n)
 {
     int max;
     for (int i = 0; i < m; i++)
@@ -19,11 +22,11 @@ int findMax(int *arr,int m,int n)
 
 int main()
 {
-    int arr[3][3], max = 0,row,col;
+    int arr[3][3], max = 0, row, col;
     printf("Enter number of row of the matrix: ");
-    scanf("%d",&row);
+    scanf("%d", &row);
     printf("Enter number of columns of the matrix: ");
-    scanf("%d",&col);
+    scanf("%d", &col);
     printf("Enter elements of the above matrix:\n");
     for (int i = 0; i < row; i++)
     {
@@ -32,6 +35,6 @@ int main()
             scanf("%d", &arr[i][j]);
         }
     }
-    findMax(&arr[0][0],row,col);
+    findMax(&arr[0][0], row, col);
     return 0;
 }

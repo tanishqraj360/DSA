@@ -1,3 +1,6 @@
+/*Write a C program to convert an expression given in “infix” form to “postfix” form
+    using stack concept.*/
+
 #include <stdio.h>
 #include <ctype.h>
 #define SIZE 50

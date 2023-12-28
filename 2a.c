@@ -1,3 +1,10 @@
+/*Write a C program to read and display the Time in specified format. Create a
+    structure called TIME with hour (int), minute(int), second(int) and next(self-
+    referencing pointer ) as its members. Dynamically create two variables of structure
+    TIME and link the first variable to the second one and display it. Write a Display
+    function that takes address of first TIME variable and displays both times in the
+    format h:m:s*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
