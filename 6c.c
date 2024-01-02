@@ -1,3 +1,5 @@
+// Write a program to find the nth term in the Fibonacci series using recursion
+
 #include <stdio.h>
 
 int fib(int n)

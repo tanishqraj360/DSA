@@ -1,3 +1,5 @@
+// Check whether a given string is a palindrome or not by using a stack.
+
 #include <stdio.h>
 #include <string.h>
 #define SIZE 50
