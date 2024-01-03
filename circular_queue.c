@@ -1,66 +1,68 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 5
+#define MAX 5
 
-int queue[SIZE];
-int front = -1, rear = -1;
+int queue[MAX];
+int front = -1;
+int rear = -1;
 
-void insert()
+void enqueue()
 {
-    int n;
+    int val;
     printf("Enter data: ");
-    scanf("%d", &n);
+    scanf("%d", &val);
     if (front == -1 && rear == -1)
     {
         front = 0;
         rear = 0;
-        queue[rear] = n;
+        queue[rear] = val;
     }
-    else if (rear == SIZE)
+    else if ((rear + 1) % MAX == front)
     {
         printf("Overflow");
     }
     else
     {
-        queue[rear] = n;
-        ++rear;
+        rear = (rear + 1) % MAX;
+        queue[rear] = val;
     }
 }
 
-void delete()
+void dequeue()
 {
-    int val;
-    if (front == -1 || front >= rear)
+    if ((front == -1) && (rear == -1))
     {
         printf("Underflow");
     }
+    else if (front == rear)
+    {
+        printf("Deleted data: %d", queue[front]);
+        front = -1;
+        rear = -1;
+    }
     else
     {
-        val = queue[front];
-        printf("Deleted data: %d", val);
-        front++;
+        printf("Deleted data: %d", queue[front]);
+        front = (front + 1) % MAX;
     }
 }
 
 void display()
 {
-    if (front == -1 || front >= rear)
+    if (front == -1 && rear == -1)
     {
-        printf("Underflow");
+        printf("Queue is empty\n");
+        return;
     }
-    else if (rear == SIZE)
+
+    int i = front;
+    while (i != rear)
     {
-        printf("Overflow");
+        printf("%d\t", queue[i]);
+        i = (i + 1) % MAX;
     }
-    else
-    {
-        printf("Elements of Queue: ");
-        for (int i = front; i < rear; i++)
-        {
-            printf("%d\t", queue[i]);
-        }
-        printf("\n");
-    }
+    printf("%d", queue[i]);
+    printf("\n");
 }
 
 int main()
@@ -76,10 +78,10 @@ int main()
         switch (ch)
         {
         case 1:
-            insert();
+            enqueue();
             break;
         case 2:
-            delete ();
+            dequeue();
             break;
         case 3:
             display();
