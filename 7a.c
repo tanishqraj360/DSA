@@ -3,34 +3,29 @@
 #define SIZE 5
 
 int queue[SIZE];
-int front = -1, rear = -1;
+int front = -1;
+int rear = -1;
 
 void insert()
 {
-    int n;
-    printf("Enter data: ");
-    scanf("%d", &n);
-    if (front == -1 && rear == -1)
-    {
-        front = 0;
-        rear = 0;
-        queue[rear] = n;
-    }
-    else if (rear == SIZE)
-    {
-        printf("Overflow");
-    }
+    int item;
+    if (rear == SIZE - 1)
+        printf("Queue Overflow \n");
     else
     {
-        queue[rear] = n;
-        ++rear;
+        if (front == -1)
+            front = 0;
+        printf("Inset the element in queue : ");
+        scanf("%d", &item);
+        rear++;
+        queue[rear] = item;
     }
 }
 
 void delete()
 {
     int val;
-    if (front == -1 || front >= rear)
+    if (front == -1 || front > rear)
     {
         printf("Underflow");
     }
@@ -38,24 +33,20 @@ void delete()
     {
         val = queue[front];
         printf("Deleted data: %d", val);
-        front++;
+        ++front;
     }
 }
 
 void display()
 {
-    if (front == -1 || front >= rear)
+    if (front == -1 || front > rear)
     {
-        printf("Underflow");
-    }
-    else if (rear == SIZE)
-    {
-        printf("Overflow");
+        printf("Queue is empty");
     }
     else
     {
         printf("Elements of Queue: ");
-        for (int i = front; i < rear; i++)
+        for (int i = front; i <= rear; i++)
         {
             printf("%d\t", queue[i]);
         }
