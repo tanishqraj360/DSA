@@ -112,10 +112,19 @@ void delete_at_value()
         }
         if (flag == 1)
         {
-            printf("Data to be deleted %d", ptr->data);
-            temp1->next = ptr->next;
-            free(ptr);
-            count--;
+            if (ptr == first)
+            {
+                printf("Data to be deleted %d", ptr->data);
+                first = ptr->next;
+                free(ptr);
+            }
+            else
+            {
+                printf("Data to be deleted %d", ptr->data);
+                temp1->next = ptr->next;
+                free(ptr);
+                count--;
+            }
         }
         else
         {
