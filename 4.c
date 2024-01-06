@@ -13,7 +13,7 @@ struct node
     struct node *next;
     struct node *prev;
     int data;
-} *head = NULL, *temp = NULL, *tail = NULL, *ptr, *ptr1;
+} *first = NULL, *temp = NULL, *last = NULL, *ptr, *ptr1 = NULL;
 
 int count = 0;
 
@@ -29,25 +29,25 @@ void create()
 
 void insert_at_first()
 {
-    if (head == NULL)
+    if (first == NULL)
     {
         create();
-        head = temp;
-        tail = head;
+        first = temp;
+        last = first;
     }
     else
     {
         create();
-        temp->next = head;
-        temp->prev = tail;
-        head = temp;
+        temp->next = first;
+        temp->prev = NULL;
+        first = temp;
     }
 }
 
 void insert_at_key()
 {
-    ptr = head;
-    if (head == NULL)
+    ptr = first;
+    if (ptr == NULL)
     {
         printf("\nList is empty\n");
     }
@@ -71,9 +71,10 @@ void insert_at_key()
             if (ptr1 == NULL)
             {
                 create();
-                temp->next = head;
-                temp->prev = tail;
-                head = temp;
+                temp->next = first;
+                temp->prev = NULL;
+                last = first;
+                first = temp;
             }
             else
             {
@@ -93,8 +94,9 @@ void insert_at_key()
 
 void delete_at_key()
 {
-    ptr = head;
-    if (head == NULL)
+    ptr = first;
+    ptr1 = NULL;
+    if (ptr == NULL)
     {
         printf("\nList is empty\n");
     }
@@ -115,19 +117,24 @@ void delete_at_key()
         }
         if (flag == 1)
         {
-            if (ptr1 == NULL)
+            if (first->next == NULL)
             {
                 printf("Data to be deleted: %d", ptr->data);
-                head = ptr->next;
+                first = NULL;
+                free(ptr);
+            }
+            else if (ptr1 == NULL)
+            {
+                printf("Data to be deleted: %d", ptr->data);
+                first = ptr->next;
                 ptr->next->prev = NULL;
                 free(ptr);
             }
             else if (ptr->next == NULL)
             {
                 printf("Data to be deleted: %d", ptr->data);
-                ptr = tail;
-                tail = ptr1;
-                tail->next = NULL;
+                last = ptr1;
+                last->next = NULL;
                 free(ptr);
             }
             else
@@ -148,8 +155,8 @@ void delete_at_key()
 
 void display()
 {
-    ptr = head;
-    if (head == NULL)
+    ptr = first;
+    if (ptr == NULL)
     {
         printf("List is empty\n");
         return;
