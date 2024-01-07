@@ -66,7 +66,7 @@ void insert_at_first()
 
 void insert_at_position()
 {
-    int pos, count1 = 0, num;
+    int pos = 0, count1 = 0, num;
     printf("Enter position: ");
     scanf("%d", &pos);
     if (pos > count)
@@ -75,16 +75,30 @@ void insert_at_position()
     }
     else
     {
-        ptr = first;
-        while (pos != count1)
+        if (pos == 0)
         {
-            temp1 = ptr;
-            ptr = ptr->next;
-            count1++;
+            create();
+            temp->next = first;
+            first = temp;
         }
-        create();
-        temp1->next = temp;
-        temp->next = ptr;
+        else if (pos == count)
+        {
+            create();
+            last->next = temp;
+        }
+        else
+        {
+            ptr = first;
+            while (pos != count1)
+            {
+                temp1 = ptr;
+                ptr = ptr->next;
+                count1++;
+            }
+            create();
+            temp1->next = temp;
+            temp->next = ptr;
+        }
     }
 }
 
