@@ -1,3 +1,7 @@
+// Write a C program to simulate the working of a queues 
+// using an array provide and implement the following operations: 
+// (i) Insert (ii) Delete (iii) Display Assume that the size of the queue is 5.
+
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 5
