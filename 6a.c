@@ -75,7 +75,6 @@ void main()
     {
         postfix[k++] = pop();
     }
-    postfix[k] = '\0';
     printf("\nGiven infix expression: %s", infix);
     printf("\nPostfix Expression: %s\n", postfix);
 }
